@@ -1,4 +1,5 @@
 import { Router } from 'express'
+import multer from 'multer'
 
 import { listCategories } from './app/useCases/category/listCategories.js'
 import { createCategory } from './app/useCases/category/createCategory.js'
