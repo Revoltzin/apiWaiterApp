@@ -15,6 +15,9 @@ const upload = multer({
     destination(req, file, callback){
       callback(null, path.resolve(__dirname, '..', 'uploads'))
     },
+    filename(req, file, callback) {
+      callback(null, `${Date.now()}-${file.originalname}`)
+    }
   }),
 })
 
