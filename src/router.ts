@@ -2,6 +2,7 @@ import path from 'node:path'
 
 import { Router } from 'express'
 import multer from 'multer'
+import { fileURLToPath } from 'url'
 
 import { listCategories } from './app/useCases/category/listCategories.js'
 import { createCategory } from './app/useCases/category/createCategory.js'
@@ -10,10 +11,13 @@ import { createProduct } from './app/useCases/products/createProduct.js'
 
 export const router = Router()
 
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
 const upload = multer({
   storage: multer.diskStorage({
     destination(req, file, callback){
-      callback(null, path.resolve(__dirname, '..', 'uploads'))
+      callback(null, path.join(__dirname, '..', 'uploads'))
     },
     filename(req, file, callback) {
       callback(null, `${Date.now()}-${file.originalname}`)
