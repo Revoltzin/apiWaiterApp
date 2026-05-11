@@ -1,7 +1,11 @@
 import path from 'node:path'
+import { fileURLToPath } from 'url'
 import express from 'express'
 import mongoose from 'mongoose'
 import { router } from './router.js'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 const app = express()
 const port = 3000
