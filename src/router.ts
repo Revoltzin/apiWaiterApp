@@ -10,6 +10,7 @@ import { listProducts } from './app/useCases/products/listProducts.js'
 import { createProduct } from './app/useCases/products/createProduct.js'
 import { listProductsByCategory } from './app/useCases/category/listProductsByCategory.js'
 import { listOrders } from './app/useCases/orders/listOrders.js'
+import { createOrder } from './app/useCases/orders/createOrder.js'
 
 export const router = Router()
 
@@ -53,9 +54,7 @@ router.get('/orders', listOrders)
 
 // Create order
 
-router.post('/orders', (req, res) => {
-    res.send('OK')
-})
+router.post('/orders', createOrder)
 
 // change order status
 
