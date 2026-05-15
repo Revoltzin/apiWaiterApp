@@ -12,6 +12,7 @@ export async function createOrder (req: Request, res: Response) {
         error: "Status Should be one of these: WAITING, IN_PRODUCTION, DONE"
       })
     }
+
   } catch {
     res.sendStatus(500)
   }
