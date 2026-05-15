@@ -9,6 +9,7 @@ import { createCategory } from './app/useCases/category/createCategory.js'
 import { listProducts } from './app/useCases/products/listProducts.js'
 import { createProduct } from './app/useCases/products/createProduct.js'
 import { listProductsByCategory } from './app/useCases/category/listProductsByCategory.js'
+import { listOrders } from './app/useCases/orders/listOrders.js'
 
 export const router = Router()
 
@@ -48,9 +49,7 @@ router.get('/categories/:categoryId/products', listProductsByCategory)
 
 // List orders
 
-router.get('/orders', (req, res) => {
-    res.send('OK')
-})
+router.get('/orders', listOrders)
 
 // Create order
 
