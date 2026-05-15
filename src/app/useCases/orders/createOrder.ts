@@ -4,15 +4,11 @@ import { Order } from "../../models/Order.js";
 
 export async function createOrder (req: Request, res: Response) {
   try {
-    const { orderId } = req.params
-    const { status } = req.body
+    const { table, products } = req.body
 
-    if (!['WAITING', 'IN_PRODUCTION', 'DONE'].includes(status)) {
-      return res.status(400).json({
-        error: "Status Should be one of these: WAITING, IN_PRODUCTION, DONE"
-      })
-    }
+    const order = await Order.create({ table, products })
 
+    res.status(201).json(order)
   } catch {
     res.sendStatus(500)
   }
